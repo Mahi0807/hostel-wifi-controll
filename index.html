@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hostel WiFi Access - Payment Gateway</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <aside id="admin-sidebar" class="sidebar">
+        <h2>Admin Panel</h2>
+        <div id="admin-login-area">
+            <p>Enter Admin Password:</p>
+            <input type="password" id="admin-password" placeholder="Password (admin123)">
+            <button id="login-btn">Login</button>
+            <p id="login-message" class="error-msg"></p>
+        </div>
+
+        <div id="admin-settings" style="display:none;">
+            <h3>Settings</h3>
+            
+            <label for="set-amount">Fixed Payment Amount (₹):</label>
+            <input type="number" id="set-amount" min="1" value="50">
+
+            <label for="set-wifi-password">WiFi Password (SSID: HostelWiFi):</label>
+            <input type="text" id="set-wifi-password" value="hostelpass123">
+            
+            <hr>
+            
+            <label for="enable-pass-btn-setting" style="display: inline-block;">
+                <input type="checkbox" id="enable-pass-btn-setting">
+                **Enable Password Button** (User ko password milega)
+            </label>
+            <hr>
+            
+            <button id="update-settings-btn" class="green-btn">Update Settings</button>
+            <button id="logout-btn" class="red-btn">Logout</button>
+
+            <hr>
+
+            <h3>Payment History</h3>
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>Date/Time</th>
+                        <th>User Name</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="history-body">
+                    </tbody>
+            </table>
+            <button id="clear-records-btn" class="red-btn">Clear Records</button>
+        </div>
+    </aside>
+
+    <main id="main-content">
+        <button id="sidebar-toggle-btn">☰ Admin</button>
+
+        <section id="payment-page">
+            <h1>Hostel WiFi Access - Pay & Connect</h1>
+            <p>payable amount: <strong id="display-amount">₹50</strong></p>
+
+            <div class="qr-container">
+                <p>Scan & Pay using any UPI app:</p>
+                <img id="qr-code-img" src="imge.jpg" alt="UPI QR Code" class="qr-image">
+            </div>
+
+            <div class="button-group">
+                <button id="paid-btn" class="green-btn">I Have Paid</button>
+                <button id="get-password-btn" class="password-btn">Get WiFi Password</button>
+            </div>
+
+            <p class="small-text">SSID: **JioFiber4G & 5G**</p>
+        </section>
+
+        <section id="thankyou-page" style="display:none;">
+            <h1 id="thankyou-heading">✅ Payment Verified!</h1>
+            <p>Aapka bahut dhanyawad, **<span id="user-name-display">User</span>**.</p>
+            <p>wifi ka password prapt karne ke liye ke "get wifi password" par click kare.</p>
+            <button id="thankyou-home-btn" class="home-btn">Go to Home Page</button>
+        </section>
+
+        <section id="password-page" style="display:none;">
+            <h1>🔑 WiFi Password</h1>
+            <p>Yahan aapka access detail hai:</p>
+            <div class="wifi-details">
+                <p>SSID: **JioFiber4G & 5G**</p>
+                <p>Password: <strong id="display-wifi-password">4G & 5G- hostel@#1234</strong></p>
+            </div>
+            <p class="small-text">Please contact the hostel controller if you face any issues.</p>
+            <button id="password-home-btn" class="home-btn">Go to Home Page</button>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

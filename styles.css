@@ -1,0 +1,197 @@
+/* General Reset and Base Styles (No Change) */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; 
+    display: flex; 
+    min-height: 100vh;
+}
+
+/* --- Main Content Styling (No Change) --- */
+#main-content {
+    flex-grow: 1;
+    padding: 20px;
+    background-color: #ffffff; 
+    transition: margin-right 0.3s; 
+}
+
+/* Headings and Paragraphs (No Change) */
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    line-height: 1.6;
+}
+
+/* --- Buttons --- */
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px auto; /* Changed margin back to auto for single buttons */
+    display: block; /* Ensure single buttons are centered */
+    transition: background-color 0.2s;
+}
+
+/* Button Group for Payment & Password buttons (Flex for centering) */
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+.button-group button {
+    display: inline-block; /* Override 'display: block' for inline-flex */
+    margin: 10px 5px; 
+}
+
+.green-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+.green-btn:hover {
+    background-color: #45a049;
+}
+
+/* New Home Button Style (Lighter/Different color) */
+.home-btn {
+    background-color: #9e9e9e; /* Grey */
+    color: white;
+    margin-top: 30px; /* Extra spacing from main content */
+}
+.home-btn:hover {
+    background-color: #757575;
+}
+
+.password-btn {
+    background-color: #3f51b5; 
+    color: white;
+}
+.password-btn:hover {
+    background-color: #303f9f;
+}
+.password-btn.disabled {
+    background-color: #607d8b; 
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.red-btn {
+    background-color: #f44336;
+    color: white;
+}
+.red-btn:hover {
+    background-color: #da190b;
+}
+
+/* --- QR Code Section (No Change) --- */
+.qr-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.qr-image {
+    width: 250px;
+    height: 250px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: block;
+    margin: 10px auto;
+    object-fit: contain; 
+}
+
+/* WiFi Details Box (No Change) */
+.wifi-details {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 15px;
+    border: 2px dashed #4CAF50;
+    border-radius: 10px;
+    background-color: #e8f5e9;
+}
+
+/* --- Admin Sidebar Styling (No Change) --- */
+.sidebar {
+    height: 100vh;
+    width: 0; 
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #2c3e50; 
+    color: white;
+    overflow-x: hidden;
+    transition: width 0.3s;
+    z-index: 100;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.5);
+    box-sizing: border-box;
+    padding-top: 60px; 
+}
+
+.sidebar.open {
+    width: 320px; 
+    padding: 20px;
+    padding-top: 60px;
+}
+.sidebar.open + #main-content {
+    margin-right: 320px; 
+}
+.sidebar h2 {
+    color: #4CAF50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.sidebar label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #ddd;
+}
+.sidebar label:has(input[type="checkbox"]) {
+    display: flex; 
+    align-items: center;
+    gap: 10px;
+}
+.sidebar input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+.sidebar button {
+    width: 100%;
+    margin-top: 10px;
+}
+#sidebar-toggle-btn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 101;
+    background-color: #34495e; 
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+#history-table { /* ... same as before */ }
+.error-msg { /* ... same as before */ }
+hr { /* ... same as before */ }
+
+/* --- Responsiveness (Mobile First) --- */
+@media (max-width: 650px) {
+    .sidebar.open {
+        width: 100%; 
+    }
+    .sidebar.open + #main-content {
+        margin-right: 0; 
+    }
+    /* Rest of mobile styling for toggle button and content padding remains same */
+    .button-group {
+        flex-direction: column; /* Stack buttons vertically on small screens */
+    }
+    .button-group button {
+        width: 90%;
+        margin: 5px auto;
+    }
+}
